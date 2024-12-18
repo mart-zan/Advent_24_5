@@ -23,6 +23,13 @@ def is_before(lst, X, Y):
         # If X or Y is not in the list
         return False
 
+def switch_two_elements(lst, el1, el2):
+
+    index_el1 = lst.index(el1)
+    index_el2 = lst.index(el2)
+
+    lst[index_el1], lst[index_el2] = lst[index_el2], lst[index_el1]
+    return update
 
 if __name__ == '__main__':
 
@@ -37,6 +44,7 @@ if __name__ == '__main__':
 
     # valid_updates = []
     middle_sum = 0
+    middle_sum_incorrect = 0
     for update in updates:
         # print(update)
         update = update.split(',')
@@ -50,13 +58,24 @@ if __name__ == '__main__':
             if X in update and Y in update:
                 if not is_before(update, X, Y):
                     correct = False
-                    # End cycle if at least one mistake
-                    break
+                    # End cycle if at least one mistake, task 1
+                    # break
+                    # for task 2:
+                    while not is_before(update, X, Y):
+                        print(update)
+                        update = switch_two_elements(update, X, Y)
+                        print('po')
+                        print(update)
         if correct:
             # valid_updates.append(update)
             middle_index = len(update) // 2
             middle_sum += update[middle_index]
+        elif not correct:
+            middle_index = len(update) // 2
+            middle_sum_incorrect += update[middle_index]
+
 
     # print(valid_updates)
 
     print('The final middle sum is', middle_sum, '.')
+    print('The final middle sum is', middle_sum_incorrect, '.')
