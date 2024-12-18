@@ -30,21 +30,15 @@ if __name__ == '__main__':
     rules_updates = read_input_by_rows('input.txt')
 
     # Separate rules and updates
-    # bool_separate = [len(ele) == 0 for ele in rules_updates]
     idx_separate = rules_updates.index('')
-    # idx_separate = int(idx_separate)
     print(idx_separate)
     rules = rules_updates[:idx_separate]
     updates = rules_updates[(idx_separate+1):]
-    # print(len(rules))
-    # print(len(updates))
-    # print(rules[0], ', ', rules[-1])
-    # print(updates[0], ', ', updates[-1])
-    # correct = 0
-    valid_updates = []
+
+    # valid_updates = []
     middle_sum = 0
     for update in updates:
-        print(update)
+        # print(update)
         update = update.split(',')
         update = list(map(int, update))
         correct = True
@@ -59,11 +53,10 @@ if __name__ == '__main__':
                     # End cycle if at least one mistake
                     break
         if correct:
-            valid_updates.append(update)
-            print()
-            print(update)
+            # valid_updates.append(update)
             middle_index = len(update) // 2
             middle_sum += update[middle_index]
 
-    print(valid_updates)
+    # print(valid_updates)
 
+    print('The final middle sum is', middle_sum, '.')
