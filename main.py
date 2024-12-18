@@ -12,6 +12,17 @@ def read_input_by_rows(filename: str):
     rows = data.strip().split('\n')
     return rows
 
+def is_before(lst, X, Y):
+    try:
+        # Find the index of X and Y
+        index_X = lst.index(X)
+        index_Y = lst.index(Y)
+        # Check if X is before Y
+        return index_X < index_Y
+    except ValueError:
+        # If X or Y is not in the list, return False
+        return False
+
 
 if __name__ == '__main__':
     print('PyCharm')
@@ -32,9 +43,10 @@ if __name__ == '__main__':
     for update in updates:
         print(update)
         update = update.split(r',')
+        update = list(map(int, update))
         for u in range(0, len(update)):
             print(update)
-            number = int(update[u])
+            number = update[u]
             print(number)
             for rule in rules:
                 # print(rule)
@@ -44,5 +56,9 @@ if __name__ == '__main__':
                 # print(Y)
                 # print()
                 if X == number:
-                    print('gjd')
+                    # index_X = update.index(X)
+                    # index_Y = update.index(Y)
+                    # index_X < index_Y
+                    # check = is_before(update, update, )
 
+                    print('update')
