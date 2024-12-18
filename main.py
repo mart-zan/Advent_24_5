@@ -29,4 +29,20 @@ if __name__ == '__main__':
     # print(rules[0], ', ', rules[-1])
     # print(updates[0], ', ', updates[-1])
 
-    
+    for update in updates:
+        print(update)
+        update = update.split(r',')
+        for u in range(0, len(update)):
+            print(update)
+            number = int(update[u])
+            print(number)
+            for rule in rules:
+                # print(rule)
+                X = int(rule[0:2])
+                Y = int(rule[3:5])
+                # print(X)
+                # print(Y)
+                # print()
+                if X == number:
+                    print('gjd')
+
