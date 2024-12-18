@@ -24,14 +24,17 @@ def is_before(lst, X, Y):
         return False
 
 def switch_two_elements(lst, el1, el2):
-    # try:
+
     index_el1 = lst.index(el1)
     index_el2 = lst.index(el2)
 
     lst[index_el1], lst[index_el2] = lst[index_el2], lst[index_el1]
     return lst
 
-# def get_middle_index
+def get_middle_index(odd_list):
+
+    middle_index = len(odd_list) // 2
+    return update[middle_index]
 
 if __name__ == '__main__':
 
@@ -62,16 +65,11 @@ if __name__ == '__main__':
                     correct = False
                     # End cycle if at least one mistake, task 1
                     break
-                    # for task 2:
-                    # while  is_before(update, X, Y):
-                    #     print(update)
-                    #     update = switch_two_elements(update, X, Y)
-                    #     print('po')
-                    #     print(update)
+
         if correct:
             # valid_updates.append(update)
             middle_index = len(update) // 2
-            middle_sum += update[middle_index]
+            middle_sum += get_middle_index(update)
 
         # Reorder updates for TASK 2
         elif not correct:
@@ -85,21 +83,13 @@ if __name__ == '__main__':
 
                     if X in update and Y in update:
                         if not is_before(update, X, Y):
-                            print('prohoazuji')
                             update = switch_two_elements(update, X, Y)
                             make_it_correct = False
                             break
                 if make_it_correct:
                     break
-                            # End cycle if at least one mistake, task 1
-                            # break
-                        # else:
 
-            middle_index = len(update) // 2
-            middle_sum_incorrect += update[middle_index]
-
-
-    # print(valid_updates)
+            middle_sum_incorrect += get_middle_index(update)
 
     print('The final middle sum is', middle_sum, '.')
     print('The final middle sum is', middle_sum_incorrect, '.')
