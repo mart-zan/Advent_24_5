@@ -24,12 +24,14 @@ def is_before(lst, X, Y):
         return False
 
 def switch_two_elements(lst, el1, el2):
-
+    # try:
     index_el1 = lst.index(el1)
     index_el2 = lst.index(el2)
 
     lst[index_el1], lst[index_el2] = lst[index_el2], lst[index_el1]
-    return update
+    return lst
+
+# def get_middle_index
 
 if __name__ == '__main__':
 
@@ -70,9 +72,31 @@ if __name__ == '__main__':
             # valid_updates.append(update)
             middle_index = len(update) // 2
             middle_sum += update[middle_index]
-        # elif not correct:
-        #     middle_index = len(update) // 2
-        #     middle_sum_incorrect += update[middle_index]
+
+        # Reorder updates for TASK 2
+        elif not correct:
+            # make_it_correct = False
+            while True:
+                make_it_correct = True
+
+                for rule in rules:
+                    X = int(rule[0:2])
+                    Y = int(rule[3:5])
+
+                    if X in update and Y in update:
+                        if not is_before(update, X, Y):
+                            print('prohoazuji')
+                            update = switch_two_elements(update, X, Y)
+                            make_it_correct = False
+                            break
+                if make_it_correct:
+                    break
+                            # End cycle if at least one mistake, task 1
+                            # break
+                        # else:
+
+            middle_index = len(update) // 2
+            middle_sum_incorrect += update[middle_index]
 
 
     # print(valid_updates)
