@@ -41,7 +41,8 @@ if __name__ == '__main__':
     # print(rules[0], ', ', rules[-1])
     # print(updates[0], ', ', updates[-1])
     # correct = 0
-    valid = 0
+    valid_updates = []
+    middle_sum = 0
     for update in updates:
         print(update)
         update = update.split(',')
@@ -58,26 +59,11 @@ if __name__ == '__main__':
                     # End cycle if at least one mistake
                     break
         if correct:
-            valid += 1
-        # for u in range(0, len(update)):
-        #     print(update)
-        #     number = update[u]
-        #     print(number)
-        #
-        #     for rule in rules:
-        #         # print(rule)
-        #         X = int(rule[0:2])
-        #         Y = int(rule[3:5])
-        #         # print(X)
-        #         # print(Y)
-        #         # print()
-        #         if X == number:
-        #             # index_X = update.index(X)
-        #             # index_Y = update.index(Y)
-        #             # index_X < index_Y
-        #             if not is_before(update, X, Y):
-        #                 correct = False
-        # if correct:
-        #     s += 1
+            valid_updates.append(update)
+            print()
+            print(update)
+            middle_index = len(update) // 2
+            middle_sum += update[middle_index]
 
-    print('vysledek', valid)
+    print(valid_updates)
+
