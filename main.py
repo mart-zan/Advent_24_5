@@ -59,20 +59,20 @@ if __name__ == '__main__':
                 if not is_before(update, X, Y):
                     correct = False
                     # End cycle if at least one mistake, task 1
-                    # break
+                    break
                     # for task 2:
-                    while not is_before(update, X, Y):
-                        print(update)
-                        update = switch_two_elements(update, X, Y)
-                        print('po')
-                        print(update)
+                    # while  is_before(update, X, Y):
+                    #     print(update)
+                    #     update = switch_two_elements(update, X, Y)
+                    #     print('po')
+                    #     print(update)
         if correct:
             # valid_updates.append(update)
             middle_index = len(update) // 2
             middle_sum += update[middle_index]
-        elif not correct:
-            middle_index = len(update) // 2
-            middle_sum_incorrect += update[middle_index]
+        # elif not correct:
+        #     middle_index = len(update) // 2
+        #     middle_sum_incorrect += update[middle_index]
 
 
     # print(valid_updates)
